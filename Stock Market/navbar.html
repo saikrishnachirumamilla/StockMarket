@@ -1,0 +1,152 @@
+
+
+
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="cartModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-shopping-cart fa-lg"></i> Cart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+
+
+
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  
+                    <div class="row">
+                        <div class="col-lg-12 bg-white rounded mb-5">
+
+                          <!-- Shopping cart table -->
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th scope="col" class="border-0 bg-light">
+                                    <div class="p-2 px-3 text-uppercase">Stock</div>
+                                  </th>
+                                  <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Price</div>
+                                  </th>
+                                  <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Quantity</div>
+                                  </th>
+                                  <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Remove</div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row" class="border-0">
+                                    <div class="p-2">
+                                      <div class="ml-3 d-inline-block align-middle">
+                                        <h5 class="mb-0">Google</h5><span class="text-muted font-weight-normal font-italic d-block">Category: Technology</span>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <td class="border-0 align-middle"><strong>$79.00</strong></td>
+                                  <td class="border-0 align-middle"><strong>3</strong></td>
+                                  <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">
+                                    <div class="p-2">
+                                      <div class="ml-3 d-inline-block align-middle">
+                                       <h5 class="mb-0">Apple</h5><span class="text-muted font-weight-normal font-italic d-block">Category: Technology</span>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <td class="align-middle"><strong>$79.00</strong></td>
+                                  <td class="align-middle"><strong>3</strong></td>
+                                  <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">
+                                    <div class="p-2">
+                                      <div class="ml-3 d-inline-block align-middle">
+                                        <h5 class="mb-0">Facebook</h5><span class="text-muted font-weight-normal font-italic d-block">Category: Technology</span>
+                                      </div>
+                                    </div>
+                                    <td class="align-middle"><strong>$79.00</strong></td>
+                                    <td class="align-middle"><strong><i class="fa fa-minus-circle fa-lg"></i>&nbsp;&nbsp;3&nbsp;&nbsp;<i class="fa fa-plus-circle fa-lg"></i></strong></td>
+                                    <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- End -->
+                        </div>
+                      </div>
+
+
+                </div>
+                <div class="carousel-item">
+
+                            <div class="row p-4 bg-white rounded">
+                                <div class="col-lg-6">
+                                  <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+                                  <div class="p-4">
+                                    <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
+                                    <div class="input-group mb-4 border rounded-pill p-2">
+                                      <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3" class="form-control border-0">
+                                      <div class="input-group-append border-0">
+                                        <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill" style="width: 120px;border-top-right-radius:0;border-bottom-right-radius:0"><i class="fa fa-gift mr-2"></i>Apply</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Comments</div>
+                                  <div class="p-4">
+                                    <p class="font-italic mb-4">If you have information about the transaction you can leave them below.</p>
+                                    <textarea name="" cols="30" rows="2" class="form-control"></textarea>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+                                  <div class="p-4">
+                                    <p class="font-italic mb-4">Handling and additional costs are calculated based on values you have entered.</p>
+                                    <ul class="list-unstyled mb-4">
+                                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
+                                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Handling Charges</strong><strong>$10.00</strong></li>
+                                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+                                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                                        <h5 class="font-weight-bold">$400.00</h5>
+                                      </li>
+                                    </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                                  </div>
+                                </div>
+                            </div>
+
+
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-previous-icon" aria-hidden="true" style="margin-right: 85px"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true" style="margin-left: 85px"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>

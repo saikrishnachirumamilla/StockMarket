@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Stock Market</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="stockmarket.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+    <script src="https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>
+    <script src="jquery.webticker.min.js"></script>
+    <script src="watchlist.js"></script>
+    <script src="navbar.js"></script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+         <nav id="sidebar" class="fixed-top" >
+            <div class="text-center" id="profilediv">
+            
+            <img class="rounded-circle z-depth-2" alt="100x100" src="download.jpg" data-holder-rendered="true" id="profilepic"/>
+            <br><br>
+            <h4 id="nameUser">User Name</h4>
+            <div class="container-fluid"><hr style="border-top: 0.5px solid #67757c;"></div>
+          </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href='dashboard.html' id="dashboard" class="d-flex justify-content-between align-items-center">
+                       
+                        Dashboard <span class="fa-stack fa-1x">
+                          <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                          <i class="fa fa-home fa-stack-1x icon"></i>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="watchlist.html" class="d-flex justify-content-between align-items-center">
+                        
+                        Watch List<span class="fa-stack fa-1x">
+                          <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                          <i class="fa fa-eye fa-stack-1x icon" style="color: #fff;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="mystocklist.html" class="d-flex justify-content-between align-items-center">
+                        
+                        My Stocks<span class="fa-stack fa-1x">
+                          <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                          <i class="fas fa-copy fa-stack-1x icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="transactions.html" class="d-flex justify-content-between align-items-center">
+                        
+                        Transactions<span class="fa-stack fa-1x">
+                          <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                          <i class="fa fa-table fa-stack-1x icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="analytics.html" class="d-flex justify-content-between align-items-center">
+                        
+                        Analytics<span class="fa-stack fa-1x">
+                          <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                          <i class="fa fa-chart-bar fa-stack-1x icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="d-flex justify-content-between align-items-center">
+                        
+                        Contact<span class="fa-stack fa-1x">
+                          <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                          <i class="fa fa-address-book fa-stack-1x icon"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="barNav">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id="wallet" data-toggle="modal" data-target="#walletModal">
+                                    <i class="fa fa-wallet fa-lg"></i> Wallet <span class="badge badge-success" id="walletAmount">$100.00</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id="cart" data-toggle="modal" data-target="#cartModal">
+                                    <i class="fa fa-shopping-cart fa-lg"></i> Cart <span class="badge badge-pill badge-primary" id="cartCount">3</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id="logout">
+                                    <i class="fa fa-sign-out-alt fa-lg"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+                <div class="container-fluid">
+
+                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4" id="watchListAddBar">
+                    <div class="input-group watchListAddBar">
+                      <input type="search" placeholder="Add Stock's to Watch List" aria-describedby="button-addon1" class="form-control border-0 bg-light" id="watchListAddBarId" STYLE="background-color: #ffffff;">
+                      <div class="input-group-append watchListAddBar">
+                        <button id="watchListAddButton" type="submit" class="btn btn-link text-primary"><i class="fa fa-plus"></i></button>
+                      </div>
+                    </div>
+              </div>
+              <div id="overlay">
+                  <ul class="list-group rounded rounded-pill" id="livesearch">
+                      
+                  </ul>
+              </div>
+              <div id="watchListAddBarIdHidden" hidden="true"></div>
+
+            <div class="row" id="watchListRow" style="margin: 10px;">
+              
+            </div>
+
+            <div class="row" id="watchListRowDetails" style="margin: 10px;">
+              
+            </div>
+
+            </div>
+
+    </div>
+<script type="text/javascript">
+        NProgress.start();
+        NProgress.set(10);
+        var interval = setInterval(function() { NProgress.inc(); }, 10000);
+        $(document).ready(function(){
+            NProgress.done();
+            clearInterval(interval);
+        });
+</script>
+
+
+
+    <div class="modal fade" id="walletModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-wallet fa-lg"></i> Wallet <span class="badge badge-success" id="modalBalance">$100.00</span></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form role="form">
+                    <div class="form-group">
+                    <label for="username">Amount</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-dollar-sign"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="amount" placeholder="" required="" id="wAmount">
+                    </div> <!-- input-group.// -->
+                    <div id="wAmountError"></div>
+                    </div> <!-- form-group.// -->
+                    
+                    <div class="form-group">
+                    <label for="username">Full name (on the card)</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="username" placeholder="" required="" id="wName">
+                    </div> <!-- input-group.// -->
+                    <div id="wNameError"></div>
+                    </div> <!-- form-group.// -->
+
+                    <div class="form-group">
+                    <label for="cardNumber">Card number</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="cardNumber" placeholder="" id="wNum">
+                    </div> <!-- input-group.// -->
+                    <div id="wNumError"></div>
+                    </div> <!-- form-group.// -->
+                    
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label><span class="hidden-xs">Expiration</span> </label>
+                                <div class="form-inline">
+                                    <select class="form-control" style="width:45%" id="wMonth">
+                                      <option>MM</option>
+                                      <option>01 - January</option>
+                                      <option>02 - February</option>
+                                      <option>03 - March</option>
+                                    </select>
+                                    <span style="width:10%; text-align: center"> / </span>
+                                    <select class="form-control" style="width:45%" id="wYear">
+                                      <option>YYYY</option>
+                                      <option>2018</option>
+                                      <option>2019</option>
+                                    </select>
+                                </div>
+                                <div id="wDateError"></div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
+                                <input class="form-control" required="" type="text" id="wCVV">
+                                <div id="wCVVError"></div>
+                            </div> <!-- form-group.// -->
+                        </div>
+                    </div> <!-- row.// -->
+            </form>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->            
+            <button type="button" class="btn btn-primary" id="addMoney">Add Money</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="cartModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-shopping-cart fa-lg"></i> Cart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+
+
+
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row" id="cartList">
+                        <div class="col-lg-12 bg-white rounded mb-5">
+
+                          <!-- Shopping cart table -->
+                          <div class="table-responsive">
+                             <h4 style="text-align: center;opacity: 0.5" id="emptyCart">You have no items in your shopping cart.</h4>
+                            <table class="table" id="cartTable">
+                              <thead>
+                                <tr>
+                                  <th scope="col" class="border-0 bg-light">
+                                    <div class="p-2 px-3 text-uppercase">Stock</div>
+                                  </th>
+                                  <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Price</div>
+                                  </th>
+                                  <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Quantity</div>
+                                  </th>
+                                  <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Remove</div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!-- End -->
+                        </div>
+                      </div>
+
+
+                </div>
+                <div class="carousel-item">
+
+                            <div class="row p-4 bg-white rounded">
+                                <div class="col-lg-6">
+                                  <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+                                  <div class="p-4">
+                                    <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
+                                    <div class="input-group mb-4 border rounded-pill p-2">
+                                      <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3" class="form-control border-0">
+                                      <div class="input-group-append border-0">
+                                        <button id="button-addon3" type="button" class="btn btn-primary px-4 rounded-pill" style="width: 120px;border-top-right-radius:0;border-bottom-right-radius:0"><i class="fa fa-gift mr-2"></i>Apply</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Comments</div>
+                                  <div class="p-4">
+                                    <p class="font-italic mb-4">If you have information about the transaction you can leave them below.</p>
+                                    <textarea name="" cols="30" rows="2" class="form-control"></textarea>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+                                  <div class="p-4">
+                                    <p class="font-italic mb-4">Handling and additional costs are calculated based on values you have entered.</p>
+                                    <ul class="list-unstyled mb-4">
+                                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong id="cartSubtotal">$390.00</strong></li>
+                                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Handling Charges</strong><strong id="cartHandling">$10.00</strong></li>
+                                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong id="cartTax">$0.00</strong></li>
+                                      <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                                        <h5 class="font-weight-bold" id="cartTotal">$400.00</h5>
+                                      </li>
+                                    </ul><a href="#" class="btn btn-primary rounded-pill py-2 btn-block" id="cartCheckout">Procceed to checkout</a>
+                                  </div>
+                                </div>
+                            </div>
+
+
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-previous-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" style="width: 20px">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>
